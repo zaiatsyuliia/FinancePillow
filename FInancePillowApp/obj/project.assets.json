@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\VS\\FinancePillow\\FInancePillowApp\\FInancePillowApp.csproj",
-      "projectName": "FInancePillowApp",
-      "projectPath": "D:\\Projects\\VS\\FinancePillow\\FInancePillowApp\\FInancePillowApp.csproj",
+      "projectUniqueName": "D:\\Projects\\VS\\FinancePillow\\FinancePillowApp\\FinancePillowApp.csproj",
+      "projectName": "FinancePillowApp",
+      "projectPath": "D:\\Projects\\VS\\FinancePillow\\FinancePillowApp\\FinancePillowApp.csproj",
       "packagesPath": "C:\\Users\\bluel\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\VS\\FinancePillow\\FInancePillowApp\\obj\\",
+      "outputPath": "D:\\Projects\\VS\\FinancePillow\\FinancePillowApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bluel\\AppData\\Roaming\\NuGet\\NuGet.Config",

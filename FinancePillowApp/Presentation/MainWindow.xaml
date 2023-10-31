@@ -1,0 +1,60 @@
+﻿<Window x:Class="FinancePillowApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinancePillowApp"
+        mc:Ignorable="d"
+        Title="Finance Pillow" Width="800" Height="500" MinWidth="800" MinHeight="500" PreviewMouseDown="Window_PreviewMouseDown">
+
+    <Grid Background="#FFE9E7FC">
+        <Label Content="FinancePillow" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="376" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Margin="212,0,0,0"/>
+        <TextBlock Text="≡" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="36" MouseLeftButtonDown="ToggleMenuVisibility"/>
+
+        <Line X1="0" Y1="80" X2="800" Y2="80" Stroke="Black" StrokeThickness="2" Grid.ColumnSpan="2"/>
+
+        <Border Name="Incomes" Background="#FFABA6D8" Width="180" Height="130" Margin="131,181,457,123">
+            <StackPanel>
+                <Button Content="🖉" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20" Margin="0,0,0,0" Click="FirstButton_Click"/>
+                <TextBlock Text="Дохід" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBlock Name="incomeTextBlock" Text="500" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <Border Name="Expences" Background="#FFABA6D8" Width="180" Height="130" Margin="489,181,99,123">
+            <StackPanel>
+                <Button Content="🖉" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20" Margin="0,0,0,0"/>
+                <TextBlock Text="Витрати" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="36" FontWeight="Bold"/>
+                <TextBlock Text="200" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="30" TextWrapping="NoWrap" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Name="overlayGrid" Background="#80000000" Visibility="Collapsed" Grid.ColumnSpan="2">
+            <Border Name="customPanel" Background="White" Width="200" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBox Name="amountTextBox" Margin="10" VerticalAlignment="Center"/>
+                    <Button Content="Додати" Click="AddAmount_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Menu Name="menuCanvas" Background="#FFABA6D8" BorderBrush="Black" Foreground="#FF1E1F18" HorizontalAlignment="Left" Width="150" Visibility="Collapsed">
+            <Button Content="Main">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFDE1A1A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Categories">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF57A12"/>
+                        <GradientStop Color="#FF092479" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Menu>
+
+    </Grid>
+</Window>

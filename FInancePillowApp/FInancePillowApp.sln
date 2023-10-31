@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FInancePillowApp", "FInancePillowApp.csproj", "{1E04D84B-E6BD-44A0-AC3B-B9A940C0B51C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancePillowApp", "FinancePillowApp.csproj", "{4C8D0472-DA78-483F-B2B0-2F877027F075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1E04D84B-E6BD-44A0-AC3B-B9A940C0B51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E04D84B-E6BD-44A0-AC3B-B9A940C0B51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E04D84B-E6BD-44A0-AC3B-B9A940C0B51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E04D84B-E6BD-44A0-AC3B-B9A940C0B51C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C8D0472-DA78-483F-B2B0-2F877027F075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8D0472-DA78-483F-B2B0-2F877027F075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8D0472-DA78-483F-B2B0-2F877027F075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8D0472-DA78-483F-B2B0-2F877027F075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {133671CE-0D24-46C3-A826-13D6A973A492}
+		SolutionGuid = {72CAC148-669C-428C-AF7F-FF2627F0C16D}
 	EndGlobalSection
 EndGlobal

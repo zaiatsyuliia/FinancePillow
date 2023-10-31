@@ -1,20 +1,20 @@
-﻿FInancePillowApp
+﻿FinancePillowApp
 1.0.0.0
 
 winexe
 C#
 .cs
-D:\Projects\VS\FinancePillow\FInancePillowApp\obj\Debug\net6.0-windows\
-FInancePillowApp
+D:\Projects\VS\FinancePillow\FinancePillowApp\obj\Debug\net6.0-windows\
+FinancePillowApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Projects\VS\FinancePillow\FInancePillowApp\App.xaml
-11407045341
+D:\Projects\VS\FinancePillow\FinancePillowApp\App.xaml
+22057862601
 
-51819837636
+6-519585879
 194183970531
-MainWindow.xaml;
+Presentation\LoginWindow.xaml;Presentation\MainWindow.xaml;
 
-False
+True
 

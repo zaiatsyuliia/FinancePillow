@@ -1,8 +1,8 @@
-﻿<Application x:Class="FInancePillowApp.App"
+﻿<Application x:Class="FinancePillowApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FInancePillowApp"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:FinancePillowApp"
+             StartupUri="Presentation/LoginWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
