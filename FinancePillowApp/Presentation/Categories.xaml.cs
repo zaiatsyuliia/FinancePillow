@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-namespace FinancePillow.WPF
+namespace Presentation
 {
-    public partial class Categories
+    public partial class Categories : Window
     {
+        public Categories()
+        {
+            InitializeComponent();
+        }
         private bool isMenuVisible = false;
 
         private void ToggleMenuVisibility(object sender, MouseButtonEventArgs e)
@@ -41,6 +47,25 @@ namespace FinancePillow.WPF
             if (element == null) return false;
             Point mousePos = e.GetPosition(element);
             return new Rect(0, 0, element.ActualWidth, element.ActualHeight).Contains(mousePos);
+        }
+
+        private void CategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Categories categoriesWindow = new Categories();
+            categoriesWindow.Show();
+        }
+        private void MainButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+        }
+        private void ReturnToLogin_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LoginWindow LoginWindow = new LoginWindow();
+            LoginWindow.Show();
         }
     }
 }

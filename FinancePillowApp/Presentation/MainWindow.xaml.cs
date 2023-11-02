@@ -1,10 +1,20 @@
-﻿using System;
+﻿using Presentation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace FinancePillow.WPF
+namespace Presentation
 {
     public partial class MainWindow : Window
     {
@@ -90,6 +100,11 @@ namespace FinancePillow.WPF
             isMenuVisible = !isMenuVisible;
         }
 
+        private void CloseMenu(object sender, RoutedEventArgs e)
+        {
+            menuCanvas.Visibility = Visibility.Collapsed;
+        }
+
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (menuCanvas.IsVisible && !IsMouseOverElement(menuCanvas, e))
@@ -124,5 +139,25 @@ namespace FinancePillow.WPF
                 textBox.Foreground = Brushes.Gray;
             }
         }
+
+        private void CategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Categories categoriesWindow = new Categories();
+            categoriesWindow.Show();
+        }
+        private void MainButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+        }
+        private void ReturnToLogin_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LoginWindow LoginWindow = new LoginWindow();
+            LoginWindow.Show();
+        }
+
     }
 }

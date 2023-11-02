@@ -1,11 +1,11 @@
-﻿<Window x:Class="FinancePillow.WPF.MainWindow"
+﻿<Window x:Class="Presentation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FinancePillow.WPF"
+        xmlns:local="clr-namespace:Presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Width="800" Height="500" MinWidth="800" MinHeight="500" PreviewMouseDown="Window_PreviewMouseDown">
+        Title="MainWindow" Width="800" Height="513" MinWidth="800" MinHeight="513" PreviewMouseDown="Window_PreviewMouseDown">
     <Window.Resources>
         <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -32,8 +32,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Window.Resources>
-    
+
     <Grid Background="#FFE9E7FC">
         <Label Content="FinancePillow" Height="76" VerticalAlignment="Top" Width="376" FontSize="36" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBlock Text="≡" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="36" MouseLeftButtonDown="ToggleMenuVisibility"/>
@@ -81,15 +82,30 @@
                     <TextBox Name="amountTextBoxForExpences" Margin="10" VerticalAlignment="Center" Text="Enter sum"  Foreground="Gray" 
                         GotFocus="TextBox_GotFocus" 
                         LostFocus="TextBox_LostFocus" FontSize="16" TextAlignment="Center"/>
+                    <ComboBox Name="categoryComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Margin="0,10,0,0">
+                        <ComboBoxItem IsSelected="True">Supermarkets</ComboBoxItem>
+                        <ComboBoxItem>Entertainment</ComboBoxItem>
+                        <ComboBoxItem>Restaurants</ComboBoxItem>
+                        <ComboBoxItem>Fashion</ComboBoxItem>
+                        <ComboBoxItem>E-Shopping</ComboBoxItem>
+                        <ComboBoxItem>Investments</ComboBoxItem>
+                        <ComboBoxItem>Home</ComboBoxItem>
+                        <ComboBoxItem>Travel</ComboBoxItem>
+                        <ComboBoxItem>Transport</ComboBoxItem>
+                        <ComboBoxItem>Other</ComboBoxItem>
+                    </ComboBox>
                     <Button Content="Add expense" Background="#FFABA6D8" Click="AddExpense_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontSize="16" Foreground="White"/>
                 </StackPanel>
             </Border>
         </Grid>
-        <StackPanel Name="menuCanvas" Background="#FFABA6D8" HorizontalAlignment="Left" Width="150"  Visibility="Collapsed" >
-            <Label Content="Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,24,0,0" FontSize="20" />
-            <Button Content="Main" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="20,30,0,0" HorizontalAlignment="Left" Width="110" Cursor="Hand"/>
-            <Button Content="Categories" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="0,10,0,0" Width="110"/>
+        <StackPanel Name="menuCanvas" Background="#FFABA6D8" HorizontalAlignment="Left" Width="150" Visibility="Collapsed">
+            <Label Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="0,0,10,0" FontSize="20" MouseLeftButtonDown="CloseMenu" Cursor="Hand"/>
+            <Label Content="Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,14,0,0" FontSize="20"/>
+            <Button Content="Main" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="20,30,0,0" HorizontalAlignment="Left" Width="110" Cursor="Hand" Click="MainButton_Click"/>
+            <Button Content="Categories" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="0,10,0,0" Width="110" Click="CategoriesButton_Click"/>
+            <Label Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="24" FontWeight="Normal" MouseLeftButtonDown="ReturnToLogin_Click" Cursor="Hand" Margin="0,30,0,0"/>
         </StackPanel>
+
 
     </Grid>
 </Window>

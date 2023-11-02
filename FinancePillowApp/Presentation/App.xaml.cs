@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FinancePillow.WPF
+namespace Presentation
 {
     /// <summary>
     /// Interaction logic for App.xaml

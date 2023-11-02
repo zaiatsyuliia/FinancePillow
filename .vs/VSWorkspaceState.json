@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FinancePillowApp",
-    "\\FinancePillowApp\\DAL",
-    "\\FinancePillowApp\\Presentation"
+    ""
   ],
-  "SelectedNode": "\\FinancePillowApp\\Presentation\\Presentation.sln",
+  "SelectedNode": "\\Presentation.sln",
   "PreviewInSolutionExplorer": false
 }
