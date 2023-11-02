@@ -28,7 +28,7 @@ namespace FinancePillow.DAL
             modelBuilder.Entity<Category>().HasKey(c => c.CategoryId);
             modelBuilder.Entity<Expense>().HasKey(e => new { e.UserId, e.CategoryId });
             modelBuilder.Entity<CategorySum>().HasKey(cs => new { cs.UserId, cs.CategoryId });
-
+            modelBuilder.Entity<UserBudget>().HasKey(ub => ub.UserId);
         }
     }
 }
