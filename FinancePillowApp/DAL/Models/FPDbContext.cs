@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Models;
+namespace DAL.Models;
 
 public partial class FPDbContext : DbContext
 {
@@ -28,6 +28,7 @@ public partial class FPDbContext : DbContext
     public virtual DbSet<UserBudget> UserBudgets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FinancePillowDB;User Id=postgres;Password=postgres");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -57,37 +58,39 @@ public partial class FPDbContext : DbContext
 
         modelBuilder.Entity<Expense>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("expenses");
+            entity.HasKey(e => e.ExpenseId).HasName("expenses_pkey");
 
+            entity.ToTable("expenses");
+
+            entity.Property(e => e.ExpenseId).HasColumnName("expense_id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.ExpenseSum)
                 .HasPrecision(10, 2)
                 .HasColumnName("expense_sum");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
-            entity.HasOne(d => d.Category).WithMany()
+            entity.HasOne(d => d.Category).WithMany(p => p.Expenses)
                 .HasForeignKey(d => d.CategoryId)
                 .HasConstraintName("expenses_category_id_fkey");
 
-            entity.HasOne(d => d.User).WithMany()
+            entity.HasOne(d => d.User).WithMany(p => p.Expenses)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("expenses_user_id_fkey");
         });
 
         modelBuilder.Entity<Income>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("incomes");
+            entity.HasKey(e => e.IncomeId).HasName("incomes_pkey");
 
+            entity.ToTable("incomes");
+
+            entity.Property(e => e.IncomeId).HasColumnName("income_id");
             entity.Property(e => e.IncomeSum)
                 .HasPrecision(10, 2)
                 .HasColumnName("income_sum");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
-            entity.HasOne(d => d.User).WithMany()
+            entity.HasOne(d => d.User).WithMany(p => p.Incomes)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("incomes_user_id_fkey");
         });

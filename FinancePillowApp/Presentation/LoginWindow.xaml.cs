@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
 
 namespace Presentation
 {
@@ -27,36 +28,68 @@ namespace Presentation
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
+            if (Logic.login(LoginEmailTextBox.Text, LoginPasswordBox.Password))
+            {
+                UserData.userId = Logic.getUserId(LoginEmailTextBox.Text);
+                this.Hide();
+                MainWindow MainWindow = new MainWindow();
+                MainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login credentials. Please try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
-            Close();
+            //ДОДАТИ ПЕРЕВІРКУ ПАРОЛЯ І ЕМЕЙЛА
+            if (Logic.register(RegisterNicknameTextBox.Text, RegisterPasswordBox.Password, RegisterEmailTextBox.Text))
+            {
+
+                UserData.userId = Logic.getUserId(RegisterEmailTextBox.Text);
+                this.Hide();
+                MainWindow MainWindow = new MainWindow();
+                MainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email already exists. Please change email.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "E-mail" || textBox.Text == "Password" || textBox.Text == "Nickname")
+            if (textBox.Text == "E-mail" || textBox.Text == "Password" || textBox.Text == "Username")
             {
                 textBox.Text = "";
-                textBox.Foreground = Brushes.Black; // Change to the appropriate color
+                textBox.Foreground = Brushes.Black;
             }
         }
+
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-                textBox.Text = textBox.Name.Contains("Email") ? "E-mail" : textBox.Name.Contains("Password") ? "Password" : "Nickname";
-                textBox.Foreground = Brushes.Gray; // Change to the appropriate color
+                textBox.Text = textBox.Name.Contains("Email") ? "E-mail" : textBox.Name.Contains("Password") ? "Password" : "Username";
+                textBox.Foreground = Brushes.Gray;
             }
         }
 
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox passwordBox = (PasswordBox)sender;
+                passwordBox.Password = "";
+                passwordBox.Foreground = Brushes.Black;
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox passwordBox = (PasswordBox)sender;
+            passwordBox.Foreground = Brushes.Gray;
+            
+        }
     }
 }

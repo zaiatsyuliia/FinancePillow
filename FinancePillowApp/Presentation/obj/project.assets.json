@@ -25,7 +25,7 @@
           "Microsoft.Extensions.Logging": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
             "related": ".xml"
           }
         },
@@ -41,7 +41,7 @@
       "Microsoft.EntityFrameworkCore.Abstractions/7.0.13": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -89,7 +89,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "related": ".xml"
           }
         },
@@ -105,7 +105,7 @@
           "Microsoft.Extensions.Primitives": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -128,7 +128,7 @@
           "Microsoft.Extensions.Primitives": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Caching.Memory.dll": {
             "related": ".xml"
           }
         },
@@ -147,7 +147,7 @@
           "Microsoft.Extensions.Primitives": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -166,7 +166,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
@@ -182,7 +182,7 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -224,7 +224,7 @@
           "Microsoft.Extensions.Options": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
@@ -240,7 +240,7 @@
       "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -260,7 +260,7 @@
           "Microsoft.Extensions.Primitives": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Options.dll": {
             "related": ".xml"
           }
         },
@@ -279,7 +279,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
@@ -304,6 +304,42 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Npgsql/7.0.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Abstractions": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[7.0.11, 8.0.0)",
+          "Npgsql": "7.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "type": "package",
         "compile": {
@@ -318,7 +354,7 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
@@ -374,6 +410,32 @@
         },
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
+        }
+      },
+      "BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
         }
       }
     }
@@ -804,6 +866,48 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Npgsql/7.0.6": {
+      "sha512": "TAqvwRnm3NJ0QvN7cvu6geJkbI0XPzGVRElVY5hF4gsgA+BnE12x6GM1TLhdeq+7ZKvvo3BD8jXKnXmr3tvdEw==",
+      "type": "package",
+      "path": "npgsql/7.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.7.0.6.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+      "sha512": "cHEgEz0ldXc9wVANs8sJqC+3eilqefrkasCBgaVT0tyj8tb1p3/pwy2ngjboNkDG3M0z+xJsJ4jC5p8wySAM3w==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.CodeDom/4.4.0": {
       "sha512": "2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
       "type": "package",
@@ -951,10 +1055,21 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "path": "../BLL/BLL.csproj",
+      "msbuildProject": "../BLL/BLL.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "BLL >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13"
     ]
   },
@@ -984,7 +1099,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Projects\\VS\\FinancePillow\\FinancePillowApp\\BLL\\BLL.csproj": {
+              "projectPath": "D:\\Projects\\VS\\FinancePillow\\FinancePillowApp\\BLL\\BLL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

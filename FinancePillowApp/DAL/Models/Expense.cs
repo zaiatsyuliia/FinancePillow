@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Models;
+namespace DAL.Models;
 
 public partial class Expense
 {
@@ -10,6 +10,8 @@ public partial class Expense
     public int? UserId { get; set; }
 
     public int? CategoryId { get; set; }
+
+    public int ExpenseId { get; set; }
 
     public virtual Category? Category { get; set; }
 

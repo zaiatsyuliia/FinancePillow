@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Models;
+namespace DAL.Models;
 
 public partial class CategorySum
 {
@@ -9,5 +9,5 @@ public partial class CategorySum
 
     public int? CategoryId { get; set; }
 
-    public decimal? TotalExpense { get; set; }
+    public decimal TotalExpense { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Models;
+namespace DAL.Models;
 
 public partial class User
 {
@@ -12,4 +12,8 @@ public partial class User
     public string Email { get; set; } = null!;
 
     public string Password { get; set; } = null!;
+
+    public virtual ICollection<Expense> Expenses { get; set; } = new List<Expense>();
+
+    public virtual ICollection<Income> Incomes { get; set; } = new List<Income>();
 }

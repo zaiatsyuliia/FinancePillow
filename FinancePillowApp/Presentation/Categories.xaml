@@ -36,86 +36,84 @@
 
     <Grid Background="#FFE9E7FC">
         <Label Content="FinancePillow" Height="76" VerticalAlignment="Top" Width="376" FontSize="36" Margin="212,0,212,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBlock Text="≡" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="36" MouseLeftButtonDown="ToggleMenuVisibility"/>
+        <Label Content="≡" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="36" MouseLeftButtonDown="ToggleMenuVisibility"/>
 
         <Line X1="0" Y1="80" X2="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Y2="80" Stroke="Black" StrokeThickness="2" Grid.ColumnSpan="2"/>
 
-
-        <Border Name="Supermarkets" Background="#FFABA6D8" Height="88" Margin="230,139,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
+        <Border Name="Supermarkets" Background="#FFABA6D8" Height="88" Margin="30,139,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
             <StackPanel>
-                <TextBlock Text="Supermarkets" Foreground="White" FontSize="20" FontWeight="Bold" Height="44" TextAlignment="Center" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                <Label Content="Supermarkets" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Name="Category1Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        
+        <Border Name="Restaurants" Background="#FFABA6D8" Height="88" Margin="230,139,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
+            <StackPanel>
+                <Label Content="Restaurants" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Name="Category2Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border Name="Entertainment" Background="#FFABA6D8" Height="88" Margin="0,139,230,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145">
+            <StackPanel>
+                <Label Content="Entertainment" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Name="Category3Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
-        <Border Name="Entertainment" Background="#FFABA6D8" Height="88" Margin="30,139,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
+        <Border Name="Fashion" Background="#FFABA6D8" Height="88" Margin="0,139,30,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145">
             <StackPanel>
-                <TextBlock Text="Entertainment" Foreground="White" FontSize="20" FontWeight="Bold" Height="44" TextAlignment="Center" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                <Label Content="Fashion" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category4Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
-        <Border Name="Restaurants" Background="#FFABA6D8" Height="88" Margin="0,139,230,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145">
+        <Border Name="Home" Background="#FFABA6D8" Width="145" Height="88" Margin="30,257,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel>
-                <TextBlock Text="Restaurants" Foreground="White" FontSize="20" FontWeight="Bold" Height="44" TextAlignment="Center" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                <Label Content="Home" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category5Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
-        <Border Name="Fashion" Background="#FFABA6D8" Width="145" Height="88" Margin="0,139,30,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Border Name="EShopping" Background="#FFABA6D8" Height="88" Margin="230,257,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
             <StackPanel>
-                <TextBlock Text="Fashion" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
+                <Label Content="E-Shopping" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category6Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
-        <Border Name="EShopping" Background="#FFABA6D8" Width="145" Height="88" Margin="30,257,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border Name="Transport" Background="#FFABA6D8" Height="88" Margin="0,257,230,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145">
             <StackPanel>
-                <TextBlock Text="E-Shopping" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
-            </StackPanel>
-        </Border>
-
-        <Border Name="Investments" Background="#FFABA6D8" Height="88" Margin="230,257,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
-            <StackPanel>
-                <TextBlock Text="Investments" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
-            </StackPanel>
-        </Border>
-
-        <Border Name="Home" Background="#FFABA6D8" Height="88" Margin="0,257,230,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145">
-            <StackPanel>
-                <TextBlock Text="Home" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
+                <Label Content="Transport" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category7Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
         <Border Name="Travel" Background="#FFABA6D8" Width="145" Height="88" Margin="0,257,30,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <StackPanel>
-                <TextBlock Text="Travel" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
+                <Label Content="Travel" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category8Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
-        <Border Name="Transport" Background="#FFABA6D8" Height="88" Margin="230,375,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
+        <Border Name="Investments" Background="#FFABA6D8" Height="88" Margin="230,375,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="145">
             <StackPanel>
-                <TextBlock Text="Transport" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
+                <Label Content="Investments" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category9Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
         <Border Name="Other" Background="#FFABA6D8" Width="145" Height="88" Margin="0,375,230,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <StackPanel>
-                <TextBlock Text="Other" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
-                <TextBlock Text="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold" Margin="0,18,0,0"/>
+                <Label Content="Other" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                <Label Name="Category10Sum" Content="500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
         </Border>
         <StackPanel Name="menuCanvas" Background="#FFABA6D8" HorizontalAlignment="Left" Width="150"  Visibility="Collapsed" >
-            <Label Content="Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,24,0,0" FontSize="20" />
+            <Label Name="menuUsername" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,24,0,0" FontSize="20" />
             <Button Content="Main" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="20,30,0,0" HorizontalAlignment="Left" Width="110" Cursor="Hand" Click="MainButton_Click"/>
             <Button Content="Categories" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="0,10,0,0" Width="110" Click="CategoriesButton_Click"/>
             <Label Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="24" FontWeight="Normal" MouseLeftButtonDown="ReturnToLogin_Click" Cursor="Hand" Margin="0,30,0,0"/>
         </StackPanel>
-        <Label Content="Categories" Background="#FFE9E7FC" Margin="190,84,190,0" VerticalAlignment="Top" FontSize="28" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Categories"  Margin="190,84,190,0" VerticalAlignment="Top" FontSize="28" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>

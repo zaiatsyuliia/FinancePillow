@@ -3,118 +3,106 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
+using Microsoft.EntityFrameworkCore;
+using DAL.Models;
 
-namespace Repositories
+namespace DAL
 {
-    public class UserRepository
+    public static class UserRepository
     {
-        private readonly FPDbContext _context;
-
-        public UserRepository(FPDbContext context)
+        private static FPDbContext context = new FPDbContext();
+        public static bool CheckUserCredentials(string email, string password)
         {
-            _context = context;
+            return context.Users.Any(u => u.Email == email && u.Password == password);
         }
 
-        public bool CheckUserCredentials(string username, string password)
+        public static bool CheckUserExists(string email)
         {
-            return _context.Users.Any(u => u.Username == username && u.Password == password);
+            return context.Users.Any(u => u.Email == email);
         }
 
-        public void AddUser(string username, string email, string password)
+
+        public static void AddUser(string username, string email, string password)
         {
             var newUser = new User { Username = username, Email = email, Password = password };
-            _context.Users.Add(newUser);
-            _context.SaveChanges();
+            context.Users.Add(newUser);
+            context.SaveChanges();
         }
 
-        public int GetUserIdByUsername(string username)
+        public static int GetUserIdByEmail( string email)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            var user = context.Users.FirstOrDefault(u => u.Email == email);
             return user?.UserId ?? -1;
         }
-    }
-    public class CategoryRepository
-    {
-        private readonly FPDbContext _context;
-
-        public CategoryRepository(FPDbContext context)
+        public static string GetUsernameByUserId(int userId)
         {
-            _context = context;
-        }
-
-        public List<Category> GetAllCategories()
-        {
-            return _context.Categories.ToList();
-        }
-
-        public Dictionary<int, string> GetCategoriesIdAndName()
-        {
-            return _context.Categories.ToDictionary(c => c.CategoryId, c => c.CategoryName);
+            var user = context.Users.FirstOrDefault(u => u.UserId == userId);
+            return user?.Username ?? "Username";
         }
     }
-    public class IncomeRepository
-    {
-        private readonly FPDbContext _context;
 
-        public IncomeRepository(FPDbContext context)
+    public static class CategoryRepository
+    {
+        private static FPDbContext context = new FPDbContext();
+        public static List<Category> GetAllCategories()
         {
-            _context = context;
+            return context.Categories.ToList();
         }
 
-        public void AddIncomeForUser(int userId, decimal incomeSum)
+        public static Dictionary<int, string> GetCategoriesIdAndName()
+        {
+            return context.Categories.ToDictionary(c => c.CategoryId, c => c.CategoryName);
+        }
+    }
+
+    public static class IncomeRepository
+    {
+        private static FPDbContext context = new FPDbContext();
+        public static void AddIncomeForUser(int userId, decimal incomeSum)
         {
             var newIncome = new Income { UserId = userId, IncomeSum = incomeSum };
-            _context.Incomes.Add(newIncome);
-            _context.SaveChanges();
+            
+            context.Incomes.Add(newIncome);
+            context.SaveChanges();
         }
     }
 
-    public class ExpenseRepository
+    public static class ExpenseRepository
     {
-        private readonly FPDbContext _context;
-
-        public ExpenseRepository(FPDbContext context)
+        private static FPDbContext context = new FPDbContext();
+        public static void AddExpenseForUser(int userId, int categoryId, decimal expenseSum)
         {
-            _context = context;
-        }
 
-        public void AddExpenseForUser(int userId, int categoryId, decimal expenseSum)
-        {
             var newExpense = new Expense { UserId = userId, CategoryId = categoryId, ExpenseSum = expenseSum };
-            _context.Expenses.Add(newExpense);
-            _context.SaveChanges();
+
+            context.Add(newExpense);
+            context.SaveChanges();
         }
     }
 
-    public class CategorySumRepository
+    public static class CategorySumRepository
     {
-        private readonly FPDbContext _context;
-
-        public CategorySumRepository(FPDbContext context)
+        private static FPDbContext context = new FPDbContext();
+        public static List<CategorySum> GetCategorySumsForUser(int userId)
         {
-            _context = context;
+            return context.CategorySums.Where(cs => cs.UserId == userId).ToList();
+        }
+        public static CategorySum GetCategorySumForUser(int userId, int categoryId)
+        {
+            return context.CategorySums.FirstOrDefault(cs => cs.UserId == userId && cs.CategoryId == categoryId);
         }
 
-        public List<CategorySum> GetCategorySumsForUser(int userId)
-        {
-            return _context.CategorySums.Where(cs => cs.UserId == userId).ToList();
-        }
+
     }
 
-    public class UserBudgetRepository
+    public static class UserBudgetRepository
     {
-        private readonly FPDbContext _context;
-
-        public UserBudgetRepository(FPDbContext context)
+        private static FPDbContext context = new FPDbContext();
+        public static UserBudget GetUserBudget(int userId)
         {
-            _context = context;
-        }
-
-        public UserBudget GetUserBudget(int userId)
-        {
-            var userBudget = _context.UserBudgets.FirstOrDefault(ub => ub.UserId == userId);
+            var userBudget = context.UserBudgets.FirstOrDefault(ub => ub.UserId == userId);
             return userBudget;
         }
+
     }
 }

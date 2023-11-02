@@ -42,3 +42,10 @@ D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\obj\Debug\net6.0-wind
 D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\obj\Debug\net6.0-windows\Presentation.pdb
 D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\obj\Debug\net6.0-windows\Presentation.genruntimeconfig.cache
 D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\obj\Debug\net6.0-windows\ref\Presentation.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\obj\Debug\net6.0-windows\Presentation.csproj.AssemblyReference.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\Npgsql.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\BLL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\DAL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\BLL.pdb
+D:\Projects\VS\FinancePillow\FinancePillowApp\Presentation\bin\Debug\net6.0-windows\DAL.pdb

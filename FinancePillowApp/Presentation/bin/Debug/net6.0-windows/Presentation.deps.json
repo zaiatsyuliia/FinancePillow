@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Presentation/1.0.0": {
         "dependencies": {
+          "BLL": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13"
         },
         "runtime": {
@@ -196,6 +197,32 @@
           }
         }
       },
+      "Npgsql/7.0.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "assemblyVersion": "7.0.6.0",
+            "fileVersion": "7.0.6.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.13",
+          "Npgsql": "7.0.6"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "7.0.11.0",
+            "fileVersion": "7.0.11.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Text.Encodings.Web/7.0.0": {
@@ -227,6 +254,22 @@
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.0.22.51805"
           }
+        }
+      },
+      "BLL/1.0.0": {
+        "dependencies": {
+          "DAL": "1.0.0"
+        },
+        "runtime": {
+          "BLL.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "dependencies": {
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "runtime": {
+          "DAL.dll": {}
         }
       }
     }
@@ -356,6 +399,20 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Npgsql/7.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TAqvwRnm3NJ0QvN7cvu6geJkbI0XPzGVRElVY5hF4gsgA+BnE12x6GM1TLhdeq+7ZKvvo3BD8jXKnXmr3tvdEw==",
+      "path": "npgsql/7.0.6",
+      "hashPath": "npgsql.7.0.6.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cHEgEz0ldXc9wVANs8sJqC+3eilqefrkasCBgaVT0tyj8tb1p3/pwy2ngjboNkDG3M0z+xJsJ4jC5p8wySAM3w==",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.11",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512"
+    },
     "System.CodeDom/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -383,6 +440,16 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

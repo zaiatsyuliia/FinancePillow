@@ -61,7 +61,7 @@
             <StackPanel>
                 <Button Content="🖉" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="30" Margin="0,0,0,0" Click="ChangeExpense_Click" Cursor="Hand"/>
                 <TextBlock Text="Expenses" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold"/>
-                <TextBlock x:Name="expenseTextBox" Text="200" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="30" TextWrapping="NoWrap" FontWeight="Bold"/>
+                <TextBlock x:Name="expenseTextBlock" Text="200" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="30" TextWrapping="NoWrap" FontWeight="Bold"/>
             </StackPanel>
         </Border>
 
@@ -72,7 +72,7 @@
                     <TextBox Name="amountTextBoxForIncomes" Margin="10" VerticalAlignment="Center" Foreground="Gray" 
                              GotFocus="TextBox_GotFocus" 
                             LostFocus="TextBox_LostFocus" FontSize="16" TextAlignment="Center" Text="Enter sum"/>
-                    <Button Content="Add income" Background="#FFABA6D8" Click="AddAmount_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontSize="16" Foreground="White"/>
+                    <Button Content="Add income" Background="#FFABA6D8" Click="AddIncome_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontSize="16" Foreground="White"/>
                 </StackPanel>
             </Border>
         </Grid>
@@ -100,7 +100,7 @@
         </Grid>
         <StackPanel Name="menuCanvas" Background="#FFABA6D8" HorizontalAlignment="Left" Width="150" Visibility="Collapsed">
             <Label Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="0,0,10,0" FontSize="20" MouseLeftButtonDown="CloseMenu" Cursor="Hand"/>
-            <Label Content="Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,14,0,0" FontSize="20"/>
+            <Label Name="menuUsername" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="25,14,0,0" FontSize="20"/>
             <Button Content="Main" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="20,30,0,0" HorizontalAlignment="Left" Width="110" Cursor="Hand" Click="MainButton_Click"/>
             <Button Content="Categories" Background="#FF6E689E" FontSize="18" Foreground="White" Padding="10" BorderThickness="0" Margin="0,10,0,0" Width="110" Click="CategoriesButton_Click"/>
             <Label Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="24" FontWeight="Normal" MouseLeftButtonDown="ReturnToLogin_Click" Cursor="Hand" Margin="0,30,0,0"/>

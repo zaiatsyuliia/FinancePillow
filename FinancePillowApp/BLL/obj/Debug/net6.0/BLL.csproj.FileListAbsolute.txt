@@ -1,0 +1,15 @@
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.csproj.AssemblyReference.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.AssemblyInfoInputs.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.AssemblyInfo.cs
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.csproj.CoreCompileInputs.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\bin\Debug\net6.0\BLL.deps.json
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\bin\Debug\net6.0\BLL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\bin\Debug\net6.0\BLL.pdb
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\bin\Debug\net6.0\DAL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\bin\Debug\net6.0\DAL.pdb
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.csproj.CopyComplete
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\refint\BLL.dll
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\BLL.pdb
+D:\Projects\VS\FinancePillow\FinancePillowApp\BLL\obj\Debug\net6.0\ref\BLL.dll

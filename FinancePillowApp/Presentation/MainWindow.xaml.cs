@@ -1,4 +1,5 @@
-﻿using Presentation;
+﻿using DAL.Models;
+using Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +14,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
 
 namespace Presentation
 {
     public partial class MainWindow : Window
     {
-        private double budget = 0;
         public MainWindow()
         {
             InitializeComponent();
-            UpdateBudgetText();
-        }
-
-        private void UpdateBudgetText()
-        {
-            if (int.TryParse(incomeTextBlock.Text, out int currentIncome) &&
-                int.TryParse(expenseTextBox.Text, out int currentExpense))
-            {
-                budget = currentIncome - currentExpense;
-                budgetTextBlock.Text = budget.ToString();
-            }
+            updateBudget();
+            menuUsername.Content = Logic.getUserName(UserData.userId);
         }
 
         private void ChangeIncome_Click(object sender, RoutedEventArgs e)
@@ -46,42 +38,34 @@ namespace Presentation
         }
 
 
-        private void AddAmount_Click(object sender, RoutedEventArgs e)
+        private void AddIncome_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(amountTextBoxForIncomes.Text, out int amountToAdd))
+            if (decimal.TryParse(amountTextBoxForIncomes.Text, out decimal income))
             {
-                if (int.TryParse(incomeTextBlock.Text, out int currentAmount))
-                {
-                    currentAmount += amountToAdd;
-                    incomeTextBlock.Text = currentAmount.ToString(); // Оновлення суми доходів
-                }
-                if (double.TryParse(budgetTextBlock.Text, out double currentBudget))
-                {
-                    currentBudget += amountToAdd;
-                    budgetTextBlock.Text = currentBudget.ToString(); // Оновлення бюджету
-                }
+                Logic.addIncome(UserData.userId, income);
+                updateBudget();
+                overlayExpense.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MessageBox.Show($"Can't parse /'{amountTextBoxForIncomes.Text}/' to decimal number. Please try again", "Invalid expense data", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             overlayIncome.Visibility = Visibility.Collapsed;
         }
 
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(amountTextBoxForExpences.Text, out int amountToRemove))
+            if (decimal.TryParse(amountTextBoxForExpences.Text, out decimal expense))
             {
-                if (int.TryParse(expenseTextBox.Text, out int currentAmount))
-                {
-                    currentAmount += amountToRemove;
-                    expenseTextBox.Text = currentAmount.ToString();
-                }
-                if (double.TryParse(budgetTextBlock.Text, out double currentBudget))
-                {
-                    currentBudget -= amountToRemove;
-                    budgetTextBlock.Text = currentBudget.ToString(); // Оновлення бюджету
-                }
+                int x = categoryComboBox.SelectedIndex;
+                Logic.addExpense(UserData.userId, categoryComboBox.SelectedIndex + 1, expense);
+                updateBudget();
+                overlayExpense.Visibility = Visibility.Collapsed;
             }
-
-            overlayExpense.Visibility = Visibility.Collapsed;
-
+            else
+            {
+                MessageBox.Show($"Can't parse /'{amountTextBoxForExpences.Text}/' to decimal number. Please try again", "Invalid expense data", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private bool isMenuVisible = false;
@@ -159,5 +143,11 @@ namespace Presentation
             LoginWindow.Show();
         }
 
+        private void updateBudget()
+        {
+            incomeTextBlock.Text = ((int)Logic.getIncome(UserData.userId)).ToString();
+            expenseTextBlock.Text = ((int)Logic.getExpenses(UserData.userId)).ToString();
+            budgetTextBlock.Text = ((int)Logic.getBudget(UserData.userId)).ToString();
+        }
     }
 }
