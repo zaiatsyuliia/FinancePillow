@@ -1,51 +1,79 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Controls;
 
-
-namespace FinancePillowApp
+namespace FinancePillow.WPF
 {
     public partial class MainWindow : Window
     {
+        private double budget = 0;
         public MainWindow()
         {
             InitializeComponent();
+            UpdateBudgetText();
         }
 
-        private void FirstButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateBudgetText()
         {
-            overlayGrid.Visibility = Visibility.Visible;
+            if (int.TryParse(incomeTextBlock.Text, out int currentIncome) &&
+                int.TryParse(expenseTextBox.Text, out int currentExpense))
+            {
+                budget = currentIncome - currentExpense;
+                budgetTextBlock.Text = budget.ToString();
+            }
         }
+
+        private void ChangeIncome_Click(object sender, RoutedEventArgs e)
+        {
+            overlayIncome.Visibility = Visibility.Visible;
+        }
+
+        private void ChangeExpense_Click(object sender, RoutedEventArgs e)
+        {
+            overlayExpense.Visibility = Visibility.Visible;
+        }
+
 
         private void AddAmount_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(amountTextBox.Text, out int amountToAdd))
+            if (int.TryParse(amountTextBoxForIncomes.Text, out int amountToAdd))
             {
                 if (int.TryParse(incomeTextBlock.Text, out int currentAmount))
                 {
                     currentAmount += amountToAdd;
-                    incomeTextBlock.Text = currentAmount.ToString();
+                    incomeTextBlock.Text = currentAmount.ToString(); // Оновлення суми доходів
+                }
+                if (double.TryParse(budgetTextBlock.Text, out double currentBudget))
+                {
+                    currentBudget += amountToAdd;
+                    budgetTextBlock.Text = currentBudget.ToString(); // Оновлення бюджету
+                }
+            }
+            overlayIncome.Visibility = Visibility.Collapsed;
+        }
+
+        private void AddExpense_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(amountTextBoxForExpences.Text, out int amountToRemove))
+            {
+                if (int.TryParse(expenseTextBox.Text, out int currentAmount))
+                {
+                    currentAmount += amountToRemove;
+                    expenseTextBox.Text = currentAmount.ToString();
+                }
+                if (double.TryParse(budgetTextBlock.Text, out double currentBudget))
+                {
+                    currentBudget -= amountToRemove;
+                    budgetTextBlock.Text = currentBudget.ToString(); // Оновлення бюджету
                 }
             }
 
-            overlayGrid.Visibility = Visibility.Collapsed;
-            Incomes.Opacity = 1.0;
-            Expences.Opacity = 1.0;
+            overlayExpense.Visibility = Visibility.Collapsed;
+
         }
+
         private bool isMenuVisible = false;
 
         private void ToggleMenuVisibility(object sender, MouseButtonEventArgs e)
@@ -68,11 +96,6 @@ namespace FinancePillowApp
             {
                 menuCanvas.Visibility = Visibility.Collapsed;
             }
-
-            if (menuCanvas.IsVisible && !IsMouseOverElement(menuCanvas, e))
-            {
-                menuCanvas.Visibility = Visibility.Collapsed;
-            }
         }
 
         private bool IsMouseOverElement(FrameworkElement element, MouseEventArgs e)
@@ -82,5 +105,24 @@ namespace FinancePillowApp
             return new Rect(0, 0, element.ActualWidth, element.ActualHeight).Contains(mousePos);
         }
 
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Enter sum")
+            {
+                textBox.Text = "";
+                textBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Enter sum";
+                textBox.Foreground = Brushes.Gray;
+            }
+        }
     }
 }

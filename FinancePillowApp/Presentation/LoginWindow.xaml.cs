@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FinancePillowApp
+namespace FinancePillow.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -54,7 +54,7 @@ namespace FinancePillowApp
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
                 textBox.Text = textBox.Name.Contains("Email") ? "E-mail" : textBox.Name.Contains("Password") ? "Password" : "Nickname";
-                textBox.Foreground = Brushes.LightGray; // Change to the appropriate color
+                textBox.Foreground = Brushes.Gray; // Change to the appropriate color
             }
         }
 

@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task3Program",
-    "\\Документи"
+    "\\FinancePillowApp",
+    "\\FinancePillowApp\\DAL",
+    "\\FinancePillowApp\\Presentation"
   ],
-  "SelectedNode": "\\Task3Program",
+  "SelectedNode": "\\FinancePillowApp\\Presentation\\Presentation.sln",
   "PreviewInSolutionExplorer": false
 }
