@@ -1,0 +1,5 @@
+D:\Projects\VS\FinancePillow\FinancePillowApp\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\VS\FinancePillow\FinancePillowApp\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
+D:\Projects\VS\FinancePillow\FinancePillowApp\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
+D:\Projects\VS\FinancePillow\FinancePillowApp\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache

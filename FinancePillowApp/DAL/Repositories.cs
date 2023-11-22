@@ -10,7 +10,7 @@ namespace DAL
 {
     public static class UserRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new();
         public static bool CheckUserCredentials(string email, string password)
         {
             return context.Users.Any(u => u.Email == email && u.Password == password);
@@ -43,7 +43,7 @@ namespace DAL
 
     public static class CategoryRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new();
         public static List<Category> GetAllCategories()
         {
             return context.Categories.ToList();
@@ -57,7 +57,7 @@ namespace DAL
 
     public static class IncomeRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new ();
         public static void AddIncomeForUser(int userId, decimal incomeSum)
         {
             var newIncome = new Income { UserId = userId, IncomeSum = incomeSum };
@@ -69,7 +69,7 @@ namespace DAL
 
     public static class ExpenseRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new();
         public static void AddExpenseForUser(int userId, int categoryId, decimal expenseSum)
         {
 
@@ -80,9 +80,10 @@ namespace DAL
         }
     }
 
+
     public static class CategorySumRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new();
         public static List<CategorySum> GetCategorySumsForUser(int userId)
         {
             return context.CategorySums.Where(cs => cs.UserId == userId).ToList();
@@ -97,7 +98,7 @@ namespace DAL
 
     public static class UserBudgetRepository
     {
-        private static FPDbContext context = new FPDbContext();
+        private static readonly FPDbContext context = new();
         public static UserBudget GetUserBudget(int userId)
         {
             var userBudget = context.UserBudgets.FirstOrDefault(ub => ub.UserId == userId);

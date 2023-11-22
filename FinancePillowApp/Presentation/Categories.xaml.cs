@@ -18,18 +18,18 @@ namespace Presentation
         public Categories()
         {
             InitializeComponent();
-            menuUsername.Content = Logic.getUserName(UserData.userId);
-            Category1Sum.Content = Logic.getCategorySum(UserData.userId, 1);
-            Category2Sum.Content = Logic.getCategorySum(UserData.userId, 2);
-            Category3Sum.Content = Logic.getCategorySum(UserData.userId, 3);
-            Category4Sum.Content = Logic.getCategorySum(UserData.userId, 4);
-            Category5Sum.Content = Logic.getCategorySum(UserData.userId, 5);
-            Category6Sum.Content = Logic.getCategorySum(UserData.userId, 6);
-            Category7Sum.Content = Logic.getCategorySum(UserData.userId, 7);
-            Category8Sum.Content = Logic.getCategorySum(UserData.userId, 8);
-            Category9Sum.Content = Logic.getCategorySum(UserData.userId, 9);
-            Category10Sum.Content = Logic.getCategorySum(UserData.userId, 10);
-            menuUsername.Content = Logic.getUserName(UserData.userId);
+            menuUsername.Content = Logic.GetUserName(UserData.userId);
+            Category1Sum.Content = Logic.GetCategorySum(UserData.userId, 1);
+            Category2Sum.Content = Logic.GetCategorySum(UserData.userId, 2);
+            Category3Sum.Content = Logic.GetCategorySum(UserData.userId, 3);
+            Category4Sum.Content = Logic.GetCategorySum(UserData.userId, 4);
+            Category5Sum.Content = Logic.GetCategorySum(UserData.userId, 5);
+            Category6Sum.Content = Logic.GetCategorySum(UserData.userId, 6);
+            Category7Sum.Content = Logic.GetCategorySum(UserData.userId, 7);
+            Category8Sum.Content = Logic.GetCategorySum(UserData.userId, 8);
+            Category9Sum.Content = Logic.GetCategorySum(UserData.userId, 9);
+            Category10Sum.Content = Logic.GetCategorySum(UserData.userId, 10);
+            menuUsername.Content = Logic.GetUserName(UserData.userId);
         }
         private bool isMenuVisible = false;
 

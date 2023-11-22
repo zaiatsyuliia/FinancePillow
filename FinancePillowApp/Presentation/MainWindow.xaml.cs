@@ -23,8 +23,8 @@ namespace Presentation
         public MainWindow()
         {
             InitializeComponent();
-            updateBudget();
-            menuUsername.Content = Logic.getUserName(UserData.userId);
+            UpdateBudget();
+            menuUsername.Content = Logic.GetUserName(UserData.userId);
         }
 
         private void ChangeIncome_Click(object sender, RoutedEventArgs e)
@@ -42,8 +42,8 @@ namespace Presentation
         {
             if (decimal.TryParse(amountTextBoxForIncomes.Text, out decimal income))
             {
-                Logic.addIncome(UserData.userId, income);
-                updateBudget();
+                Logic.AddIncome(UserData.userId, income);
+                UpdateBudget();
                 overlayExpense.Visibility = Visibility.Collapsed;
             }
             else
@@ -57,9 +57,8 @@ namespace Presentation
         {
             if (decimal.TryParse(amountTextBoxForExpences.Text, out decimal expense))
             {
-                int x = categoryComboBox.SelectedIndex;
-                Logic.addExpense(UserData.userId, categoryComboBox.SelectedIndex + 1, expense);
-                updateBudget();
+                Logic.AddExpense(UserData.userId, categoryComboBox.SelectedIndex + 1, expense);
+                UpdateBudget();
                 overlayExpense.Visibility = Visibility.Collapsed;
             }
             else
@@ -97,7 +96,7 @@ namespace Presentation
             }
         }
 
-        private bool IsMouseOverElement(FrameworkElement element, MouseEventArgs e)
+        private static bool IsMouseOverElement(FrameworkElement element, MouseEventArgs e)
         {
             if (element == null) return false;
             Point mousePos = e.GetPosition(element);
@@ -127,27 +126,27 @@ namespace Presentation
         private void CategoriesButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            Categories categoriesWindow = new Categories();
+            Categories categoriesWindow = new();
             categoriesWindow.Show();
         }
         private void MainButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            MainWindow MainWindow = new MainWindow();
+            MainWindow MainWindow = new();
             MainWindow.Show();
         }
         private void ReturnToLogin_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            LoginWindow LoginWindow = new LoginWindow();
+            LoginWindow LoginWindow = new();
             LoginWindow.Show();
         }
 
-        private void updateBudget()
+        private void UpdateBudget()
         {
-            incomeTextBlock.Text = ((int)Logic.getIncome(UserData.userId)).ToString();
-            expenseTextBlock.Text = ((int)Logic.getExpenses(UserData.userId)).ToString();
-            budgetTextBlock.Text = ((int)Logic.getBudget(UserData.userId)).ToString();
+            incomeTextBlock.Text = ((int)Logic.GetIncome(UserData.userId)).ToString();
+            expenseTextBlock.Text = ((int)Logic.GetExpenses(UserData.userId)).ToString();
+            budgetTextBlock.Text = ((int)Logic.GetBudget(UserData.userId)).ToString();
         }
     }
 }

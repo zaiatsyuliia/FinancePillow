@@ -28,11 +28,11 @@ namespace Presentation
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Logic.login(LoginEmailTextBox.Text, LoginPasswordBox.Password))
+            if (Logic.Login(LoginEmailTextBox.Text, LoginPasswordBox.Password))
             {
-                UserData.userId = Logic.getUserId(LoginEmailTextBox.Text);
+                UserData.userId = Logic.GetUserId(LoginEmailTextBox.Text);
                 this.Hide();
-                MainWindow MainWindow = new MainWindow();
+                MainWindow MainWindow = new();
                 MainWindow.Show();
             }
             else
@@ -44,12 +44,13 @@ namespace Presentation
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             //ДОДАТИ ПЕРЕВІРКУ ПАРОЛЯ І ЕМЕЙЛА
-            if (Logic.register(RegisterNicknameTextBox.Text, RegisterPasswordBox.Password, RegisterEmailTextBox.Text))
+            if (Logic.R
+                (RegisterNicknameTextBox.Text, RegisterPasswordBox.Password, RegisterEmailTextBox.Text))
             {
 
-                UserData.userId = Logic.getUserId(RegisterEmailTextBox.Text);
+                UserData.userId = Logic.GetUserId(RegisterEmailTextBox.Text);
                 this.Hide();
-                MainWindow MainWindow = new MainWindow();
+                MainWindow MainWindow = new();
                 MainWindow.Show();
             }
             else
